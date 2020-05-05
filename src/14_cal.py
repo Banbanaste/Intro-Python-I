@@ -29,4 +29,17 @@ it should use today’s date to get the month and year.
 
 import sys
 import calendar
-from datetime import datetime
+from datetime import date
+
+varCheck = len(sys.argv)
+
+if varCheck == 3:
+  filename, month, year = sys.argv
+  calendar.prmonth(int(year), int(month))
+elif varCheck == 2:
+  filename, month = sys.argv
+  calendar.prmonth(int(date.today().year), int(month))
+elif varCheck == 1:
+  calendar.prmonth(int(date.today().year), int(date.today().month))
+else:
+  print("call `python3 14_cal.py 4 2015` to print out a calendar for April in 2015")
